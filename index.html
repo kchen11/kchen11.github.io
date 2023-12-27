@@ -3,15 +3,109 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Kevin Chen Site</title>
+        <title>Kevin Chen Homepage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles/main.css">
-       <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+        <style>
+        .mode {
+            float:right;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 32px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 16px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .dark{
+            --mainTextColor-dark:#fff;
+            --secondaryTextColor-dark:#adb0b1;
+            --mainLinkColor-dark:rgb(30, 190,214);
+            --mainBorderColor-dark:#2b3031;
+            --mainBgColor-dark:#121212;
+
+            --mainTextColor:var(--mainTextColor-dark);
+            --secondaryTextColor:var(--secondaryTextColor-dark);
+            --mainLinkColor:var(--mainLinkColor-dark);
+            --mainBorderColor:var(--mainBorderColor-dark);
+            --mainBgColor:var(--mainBgColor-dark);
+        }
+        </style>
+
     </head>
     <body>
+        <div class = 'mode'> Dark Mode: 
+            <label class="switch">
+                <input type="checkbox">
+                    <span class="slider round"></span>
+            </label>
+        </div>
+        <script>
+
+            $( ".slider" ).on("click", function() {
+                if( $( "body" ).hasClass( "dark" )) {
+                    $( "body" ).removeClass( "dark" );
+                } else {
+                    $( "body" ).addClass( "dark" );
+                }
+            });
+        </script>
 
         <div id="container--main">
 
@@ -21,15 +115,16 @@
                 <div>
                     <h1 id="user-name">Kevin Chen</h1>
                     <p id="bio"><p> Data Analyst II @ Fulton County Government</p>
-                    <p id="email"> <i class="fa-solid fa-hand-point-right"></i> chenkevin901@gmail.com <i class="fa-solid fa-hand-point-left"></i></p>
+                    <p id="email"> <i class="fa-solid fa-hand-point-right"></i> <a href = "mailto:chenkevin901@gmail.com"> chenkevin901@gmail.com </a> <i class="fa-solid fa-hand-point-left"></i></p>
                 </div>  
                 
             </section>
 
             <section class="section--page">
                 <div id="socials--list">
-                    <a href="https://www.linkedin.com/in/kevinchen404" target="_blank"> <i class= "fa-brands fa-linkedin fa-2xl"> </i> <font size = '+1'>Linkedin</font></a>
                     <a href="https://www.github.com/kchen11" target="_blank"> <i class= "fa-brands fa-github fa-2xl"></i> <font size = '+1'>Github</font></a>
+                    <a href="https://www.linkedin.com/in/kevinchen404" target="_blank"> <i class= "fa-brands fa-linkedin fa-2xl"> </i> <font size = '+1'>Linkedin</font></a>
+                    <a href ='./project1.html' target ="_self"><i class= "fa-solid fa-folder fa-2xl"> </i> <font size = '+1'>Projects</font></a>
                     <a href="./assets/resume.pdf" target="_blank"><i class="fa-solid fa-file-arrow-down fa-2xl"></i> <font size = '+1'>Resume Download</font></a>
                 </div>
             </section>
@@ -37,13 +132,28 @@
             <section class="section--page">
                 <h2>Skills & Qualifications</h2>
                 <ul id="qualifications--list">
-                    <li> <i class="fa-sharp fa-solid fa-arrow-trend-up fa-xs"></i> 3 Years experience with Data Analysis, ETL Processing, Dashboarding </li>
-                    <li> <i class="fa-solid fa-laptop-code fa-xs"></i></i> 5 Years experience with R and SQL </li>
-                   <!--  <li>✔️ Experienced content creator on YouTube & community leader </li>
-                    <li>✔️ 7 Years experience with running Adwords campaigns & SEO</li>
-                -->
+                    <li > <i class="fa-sharp fa-solid fa-arrow-trend-up fa-xs"></i> <span id = 'id_exp'></span></li>
+                    <li> <i class="fa-solid fa-laptop-code fa-xs"></i></i> <span id = 'id_exp1'></span></li>
                 </ul>
-            </section>  
+            </section>
+
+            <script>
+                    var current_year = new Date().getFullYear();
+                    var years_of_exp = current_year - 2020;
+                    var years_of_exp1 = current_year - 2018;
+    
+                    document.getElementById('id_exp').innerHTML = `${years_of_exp} years experience with Data Analysis, ETL Processing, Dashboarding`;
+                    document.getElementById('id_exp1').innerHTML = `${years_of_exp1} years experience with R and SQL`;
+            </script>
+
+            <section class="section--page">
+                <h2>Certifications</h2>
+                <ul>
+                    <li><a href ="https://verify.datasciencedojo.com/verify/fe1837a1" target ="_blank">Data Science Bootcamp via Data Science Dojo</a> </li>
+                    <li><a href ="https://www.codecademy.com/profiles/PlasmaGhost1213/certificates/5b32457b646caa5007c30975" target ="_blank">Basic Web Development via CodeAcademy</a> </li>
+
+                </ul>
+            </section>
 
             <section id="work-history-wrapper" class="section--page">
                 <h2>Work History</h2>
@@ -116,17 +226,7 @@
                 </div>
         
             </section>
-            
-            <section class="section--page">
-                <h2>Projects & Accomplishments</h2>
-            
-                <!-- <div class="card--project">
-                    <a href="project1.html"><span>🏆</span> Built a Laboratory management system for forensics lab</a>
-                </div>
-            -->
-            </section>
-            
-            
+
         </div>
 
     </body>

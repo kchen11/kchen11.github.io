@@ -5,20 +5,8 @@
     --secondaryTextColor:(51 51 51);
     --mainLinkColor:#0da2b8;
     --mainBorderColor:rgb(218, 218, 218);
-    --mainBgColor:rgb(249, 250,251);
+    --mainBgColor:rgb(250, 240, 230);
 
-    /*--mainTextColor-dark:#fff;
-    --secondaryTextColor-dark:#adb0b1;
-    --mainLinkColor-dark:rgb(30, 190,214);
-    --mainBorderColor-dark:#2b3031;
-    --mainBgColor-dark:#131415;
-
-    --mainTextColor:var(--mainTextColor-dark);
-    --secondaryTextColor:var(--secondaryTextColor-dark);
-    --mainLinkColor:var(--mainLinkColor-dark);
-    --mainBorderColor:var(--mainBorderColor-dark);
-    --mainBgColor:var(--mainBgColor-dark);
-    */
 }
 
 *{
@@ -28,6 +16,7 @@
     color: var(--mainTextColor);
 
 }
+
 
 body{
     background-color: var(--mainBgColor);         
@@ -70,8 +59,8 @@ li{
 }
 
 #user-name{
-    font-size: 48px;
-    line-height: 1em;
+    font-size: 36px;
+    line-height: 0em;
 }
 
 #profile-pic{
@@ -109,20 +98,6 @@ li{
     list-style: none;
 }
 
-/* #wrapper--techstack__items{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    font-size: 0.9em;
-}
-
-.card--techstack{
-    border: 1px solid var(--mainBorderColor);
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    align-items: center;
-}
-*/ 
 .card--work-history{
     border-left: 1px solid var(--mainBorderColor);
     margin-top: 3em;
@@ -152,3 +127,25 @@ li{
 
 }
 
+@media(max-width:600px){
+
+    .section--page{
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    #wrapper--hero{
+        gap: 1em;
+        flex-direction: column;
+    }
+
+    #profile-pic{
+        width: 200px;
+        height: 200px;
+    }
+
+    .card--work-history{
+        border-left: none;
+        padding-left: 0;
+    }
+}
