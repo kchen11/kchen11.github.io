@@ -9,6 +9,10 @@
 
 }
 
+#header2{
+    text-align: center;
+}
+
 *{
     font-family: 'helvetica';
     line-height: 1.5em;
@@ -138,14 +142,29 @@ li{
         gap: 1em;
         flex-direction: column;
     }
+    #section--intro{
+        text-align: center;
+    }
+
+    #container--main{
+        padding-top: 2em;
+    }
 
     #profile-pic{
-        width: 200px;
-        height: 200px;
+        width: 160px;
+        height: 160px;
     }
 
     .card--work-history{
         border-left: none;
         padding-left: 0;
+    }
+
+    #header2{
+        text-align: center;
+    }
+
+    #socials--list {
+        gap: .65em;
     }
 }
